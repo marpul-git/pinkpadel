@@ -1,0 +1,1 @@
+<h1 class="text-4xl">Pink<span class="font-extrabold">Padel</span></h1>
