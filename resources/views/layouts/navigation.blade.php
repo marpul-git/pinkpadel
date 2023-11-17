@@ -38,6 +38,12 @@
                             {{ __('Tu perfil') }}
                         </x-dropdown-link>
 
+                         <!-- Este enlace hay que protegerlo con el rol de administrador -->
+                         
+                        <x-dropdown-link :href="route('admin.home')">
+                            {{ __('Administración') }}
+                        </x-dropdown-link>
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
