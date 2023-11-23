@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/',
+    'dashboard_url' => '/dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -317,8 +317,8 @@ return [
         ],
         [
             'text'        => 'Usuarios',
-            //'route'         => 'admin.users.index',
-            'url'        => '#',
+            'route'         => 'admin.users.index',
+          
             'icon'        => 'fas fa-user fa-fw',
             //'can'  => 'admin.users.index',
             'active' => ['admin/users*']
@@ -335,24 +335,22 @@ return [
         
         [
             'text' => 'Pistas',
-            //'route'  => 'admin.courts.index',
-            'url'        => '#',
+            'route'  => 'admin.courts.index',
             'icon' => 'fab fa-fw fa-buffer',
             //'can'  => 'admin.courts.index',
             'active' => ['admin/courts*']
         ],
         [
             'text' => 'Secciones horarias',
-            //'route'  => 'admin.sections.index',
-            'url'        => '#',
+            'route'  => 'admin.sections.index',
             'icon' => 'fas fa-fw fa-hourglass-start',
             //'can'  => 'admin.sections.index',
             'active' => ['admin/sections*']
         ],
         [
             'text' => 'Tarifas',
-            //'route'  => 'admin.tariffs.index',
-            'url'        => '#',
+            'route'  => 'admin.tariffs.index',
+            
             'icon' => 'fas fa-fw fa-euro-sign',
             //'can'  => 'admin.tariffs.index',
             'active' => ['admin/tariffs*']
@@ -360,16 +358,14 @@ return [
         ['header' => 'PADEL'],
         [
             'text'       => 'Eventos',
-             //'route'        => 'admin.events.index',
-             'url'        => '#',
+             'route'        => 'admin.events.index',
              'icon'         => 'fas fa-fu fa-clipboard',
              //'can'  => 'admin.events.index',
              'active' => ['admin/events/by*']
         ],
         [
             'text'       => 'Crear nuevo evento',
-             //'route'        => 'admin.events.create',
-             'url'        => '#',
+             'route'        => 'admin.events.create',
              'icon'         => 'fas fa-fu fa-file',
              //'can'  => 'admin.events.create',
         ],
@@ -533,5 +529,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

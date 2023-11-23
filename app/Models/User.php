@@ -3,12 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Tariff;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use App\Notifications\CustomResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -23,6 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'tariff_id'
     ];
 
     /**
@@ -47,6 +49,26 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function sendPasswordResetNotification($token){
         $this->notify(new CustomResetPassword($token));
+    }
+
+    public function tariff(){
+
+        //$tariff = Tariff::where('user_id',$this->id->first());
+
+        //return $this->hasOne(Tariff::class);// Si la clave foranea se encontrara en Tariffs
+        //Un usuario solo puede tener una tarifa
+
+        return $this->belongsTo(Tariff::class);  //belongs to = Pertenece a
+
+        //Tariff::class = 'App\Models\Tariff'  se podria sustituir para no importar la clase
+
+        // Al metodo belongsTo se le puede pasar el nombre de la FK y la PK si no coinciden con la convencion
+
+    }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
     }
 
     public function adminlte_image()
