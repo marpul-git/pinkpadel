@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 
 class SectionController extends Controller
 {
-    /*
+   
     public function __construct() {
         $this->middleware('can:admin.sections.index')->only('index');
         $this->middleware('can:admin.sections.create')->only('create','store');
@@ -17,7 +17,7 @@ class SectionController extends Controller
        
         
     }
-    */
+    
     /**
      * Display a listing of the resource.
      */

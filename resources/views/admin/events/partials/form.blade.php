@@ -4,11 +4,12 @@
             <label for="type">Tipo</label>
             <select name="type" id="type" class="form-control col-8" placeholder="Seleccione el tipo de evento">
                 <option value="">-- Tipo de Evento --</option>
-                <option value="PARTIDO">PARTIDO</option>
-                <option value="SNP">SNP</option>
-                <option value="FAP">FAP</option>
-                <option value="ENTRENAMIENTO">ENTRENAMIENTO</option>
-                <option value="OTRO">OTRO</option>
+                <option value="PARTIDO" {{ old('type') == 'PARTIDO' ? 'selected' : '' }}>PARTIDO</option>
+                <option value="SNP" {{ old('type') == 'SNP' ? 'selected' : '' }}>SNP</option>
+                <option value="FAP" {{ old('type') == 'FAP' ? 'selected' : '' }}>FAP</option>
+                <option value="ENTRENAMIENTO" {{ old('type') == 'ENTRENAMIENTO' ? 'selected' : '' }}>ENTRENAMIENTO
+                </option>
+                <option value="OTRO" {{ old('type') == 'OTRO' ? 'selected' : '' }}>OTRO</option>
             </select>
 
             @error('type')
@@ -21,9 +22,9 @@
             <select name="state" id="state" class="form-control col-8"
                 placeholder="Seleccione el estado del evento">
                 <option value="">-- Indica el Estado --</option>
-                <option value="RESERVADO">RESERVADO</option>
-                <option value="ALQUILADO">ALQUILADO</option>
-                <option value="FIN">FIN</option>
+                <option value="RESERVADO" {{ old('state') == 'RESERVADO' ? 'selected' : '' }}>RESERVADO</option>
+                <option value="ALQUILADO" {{ old('state') == 'ALQUILADO' ? 'selected' : '' }}>ALQUILADO</option>
+                <option value="FIN" {{ old('state') == 'FIN' ? 'selected' : '' }}>FIN</option>
             </select>
 
             @error('state')
@@ -33,8 +34,8 @@
 
         <div class="form-group col-2">
             <label for="price">Precio</label>
-            <input type="number" name="price" id="price" class="form-control col-6" placeholder="€"
-                step="0.01">
+            <input type="number" name="price" id="price" class="form-control col-6" value="{{ old('price') }}"
+                placeholder="€" step="0.01">
 
             @error('price')
                 <span class="text-danger">{{ $message }}</span>
@@ -46,7 +47,8 @@
             <select name="court_id" id="court_id" class="form-control col-12">
                 <option value="">-- Selecciona la Pista --</option>
                 @foreach ($courts as $courtId => $court)
-                    <option value="{{ $courtId }}" {{ $selectedCourtId == $courtId ? 'selected' : '' }}>
+                    <option value="{{ $courtId }}"
+                        {{ old('court_id') == $courtId || $selectedCourtId == $courtId ? 'selected' : '' }}>
                         {{ $court }}</option>
                 @endforeach
             </select>
@@ -59,9 +61,10 @@
     <div class="form-group col-12">
         <label for="user_id">Usuario</label>
         <select name="user_id" id="user_id" class="form-control col-2">
-            <option value=""> Selecciona un usuario </option>
+            <option value="">Selecciona un usuario</option>
             @foreach ($users as $userId => $userName)
-                <option value="{{ $userId }}">{{ $userName }}</option>
+                <option value="{{ $userId }}" {{ (old('user_id') == $userId) ? 'selected' : '' }}>
+                    {{ $userName }}</option>
             @endforeach
         </select>
         @error('user_id')

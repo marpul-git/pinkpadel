@@ -39,10 +39,12 @@
                         </x-dropdown-link>
 
                          <!-- Este enlace hay que protegerlo con el rol de administrador -->
-                         
+
+                         @can('admin.home')
                         <x-dropdown-link :href="route('admin.home')">
                             {{ __('Administración') }}
                         </x-dropdown-link>
+                        @endcan
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -89,6 +91,12 @@
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Tu perfil') }}
                 </x-responsive-nav-link>
+
+                @can('admin.home')
+                <x-responsive-nav-link :href="route('admin.home')">
+                    {{ __('Administración') }}
+                </x-responsive-nav-link>
+                        @endcan
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">

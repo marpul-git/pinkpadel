@@ -312,7 +312,7 @@ return [
             'text'        => 'ADMINISTRACIÓN',
             'route'         => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
-            //'can'  => 'admin.home',
+            'can'  => 'admin.home',
             
         ],
         [
@@ -320,16 +320,15 @@ return [
             'route'         => 'admin.users.index',
           
             'icon'        => 'fas fa-user fa-fw',
-            //'can'  => 'admin.users.index',
+            'can'  => 'admin.users.index',
             'active' => ['admin/users*']
             
         ],
         [
             'text'        => 'Roles',
-            //'route'         => 'admin.roles.index',
-            'url'        => '#',
+            'route'         => 'admin.roles.index',
             'icon'        => 'fas fa-user-cog fa-fw',
-            //'can'  => 'admin.roles.index',
+            'can'  => 'admin.roles.index',
             'active' => ['admin/roles*']
         ],
         
@@ -337,14 +336,14 @@ return [
             'text' => 'Pistas',
             'route'  => 'admin.courts.index',
             'icon' => 'fab fa-fw fa-buffer',
-            //'can'  => 'admin.courts.index',
+            'can'  => 'admin.courts.index',
             'active' => ['admin/courts*']
         ],
         [
             'text' => 'Secciones horarias',
             'route'  => 'admin.sections.index',
             'icon' => 'fas fa-fw fa-hourglass-start',
-            //'can'  => 'admin.sections.index',
+            'can'  => 'admin.sections.index',
             'active' => ['admin/sections*']
         ],
         [
@@ -352,7 +351,7 @@ return [
             'route'  => 'admin.tariffs.index',
             
             'icon' => 'fas fa-fw fa-euro-sign',
-            //'can'  => 'admin.tariffs.index',
+            'can'  => 'admin.tariffs.index',
             'active' => ['admin/tariffs*']
         ],   
         ['header' => 'PADEL'],
@@ -360,14 +359,14 @@ return [
             'text'       => 'Eventos',
              'route'        => 'admin.events.index',
              'icon'         => 'fas fa-fu fa-clipboard',
-             //'can'  => 'admin.events.index',
+             'can'  => 'admin.events.index',
              'active' => ['admin/events/by*']
         ],
         [
             'text'       => 'Crear nuevo evento',
              'route'        => 'admin.events.create',
              'icon'         => 'fas fa-fu fa-file',
-             //'can'  => 'admin.events.create',
+             'can'  => 'admin.events.create',
         ],
         ['header' => 'OTROS'],
         [

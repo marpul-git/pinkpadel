@@ -1,34 +1,45 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Crear Eventos')
 
 @section('content_header')
     <h1>Crear nuevo evento</h1>
 @stop
 @section('content')
     <div class='card'>
-
+        <div class='card-body'>
+        @if (session('error'))
+            <div class="card-header alert alert-danger">
+                <strong>{{ session('error') }}</strong>
+            </div>
+        @endif
+    </div>
         <div class='card-body'>
             <form action="{{ route('admin.events.store') }}" method="POST" autocomplete="off">
                 @csrf
-        
+
                 <div class="form-group">
                     <label for="date">Fecha</label>
-                    <input type="date" name="date" id="date" class="form-control col-2" value="{{ $selectedDate ?? now()->format('Y-m-d') }}">
+                    <input type="date" name="date" id="date" class="form-control col-2"
+                        value="{{ old('date', $selectedDate ?? now()->format('Y-m-d')) }}">
                     @error('date')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-        
+
                 @include('admin.events.partials.form')
-        
+
                 <div class="form-group ml-3">
                     <label for="section_id">Secciones</label><br>
                     <div class="row">
-                        @foreach ($sections as $sectionId => $section)
+
+                {{-- dd($allSections)--}}                        
+                        @foreach ($allSections as $sectionId => $section)
                             <div class="col-md-4">
                                 <label class="form-check-label">
-                                    <input type="checkbox" name="section_id[]" value="{{ $sectionId }}" class="form-check-input">
+                                    <input type="checkbox" name="section_id[]" value="{{ $sectionId }}"
+                                        class="form-check-input"
+                                        {{ is_array(old('section_id')) && in_array($sectionId, old('section_id')) ? 'checked' : '' }}>
                                     {{ \Carbon\Carbon::createFromFormat('H:i:s', $section->start_time)->format('H:i') }}
                                     - {{ \Carbon\Carbon::createFromFormat('H:i:s', $section->end_time)->format('H:i') }}
                                 </label>
@@ -39,68 +50,68 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-        
+
                 <div class="form-group row">
                     <div class="col">
                         <label for="user1_id">Jugador 1</label>
                         <select name="user1_id" id="user1_id" class="form-control" placeholder="Seleccione un jugador">
                             <option value="">-- Selecciona un usuario --</option>
                             @foreach ($users as $userId => $userName)
-                                <option value="{{ $userId }}">{{ $userName }}</option>
+                                <option value="{{ $userId }}" {{ old('user1_id') == $userId ? 'selected' : '' }}>
+                                    {{ $userName }}
+                                </option>
                             @endforeach
                         </select>
                         @error('user1_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-        
+
                     <div class="col">
                         <label for="user2_id">Jugador 2</label>
                         <select name="user2_id" id="user2_id" class="form-control" placeholder="Seleccione un jugador">
                             <option value="">-- Selecciona un usuario --</option>
                             @foreach ($users as $userId => $userName)
-                                <option value="{{ $userId }}">{{ $userName }}</option>
+                                <option value="{{ $userId }}" {{ old('user2_id') == $userId ? 'selected' : '' }}>
+                                    {{ $userName }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
-                    
+
                     <div class="col">
                         <label for="user3_id">Jugador 3</label>
-                        
                         <select name="user3_id" id="user3_id" class="form-control" placeholder="Seleccione un jugador">
                             <option value="">-- Selecciona un usuario --</option>
                             @foreach ($users as $userId => $userName)
-                                <option value="{{ $userId }}">{{ $userName }}</option>
+                                <option value="{{ $userId }}" {{ old('user3_id') == $userId ? 'selected' : '' }}>
+                                    {{ $userName }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
-                    
+
                     <div class="col">
                         <label for="user4_id">Jugador 4</label>
                         <select name="user4_id" id="user4_id" class="form-control" placeholder="Seleccione un jugador">
                             <option value="">-- Selecciona un usuario --</option>
                             @foreach ($users as $userId => $userName)
-                                <option value="{{ $userId }}">{{ $userName }}</option>
+                                <option value="{{ $userId }}" {{ old('user4_id') == $userId ? 'selected' : '' }}>
+                                    {{ $userName }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
-                    
-        
                 </div>
-        
+
+
                 <button type="submit" class="btn btn-primary">Crear evento</button>
             </form>
         </div>
-        
+
 
 
     </div>
-@stop
-
-
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
@@ -170,8 +181,5 @@
             // Asignamos el valor del campo "Usuario" al campo "Jugador 1"
             jugador1Input.value = usuarioInput.value;
         });
-
-        
     </script>
 @stop
-

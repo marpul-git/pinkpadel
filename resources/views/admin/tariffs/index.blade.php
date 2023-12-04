@@ -1,6 +1,12 @@
 @extends('adminlte::page')
 
 @section('title', 'Tarifas')
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+@stop
+
 
 @section('content_header')
     <h1>Listado de tarifas</h1>
@@ -14,23 +20,31 @@
     @endif
 
     <div class='card'>
-        <div class="card-header ">
+        <div class="card-header">
+            @can('admin.tariffs.create')   
 
-            {{--  @can('admin.tariffs.create')    --}}
-
-                <a class="btn btn-success float-right" href="{{ route('admin.tariffs.create') }}">Agregar tarifa</a>
-
-             {{--     @endcan   --}}
-
+                            <a class="btn btn-success float-right" href="{{ route('admin.tariffs.create') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
+                                    <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z"/>
+                                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
+                                  </svg>
+                                Nueva Tarifa</a>
+            
+                              @endcan   
         </div>
+        
         <div class='card-body'>
-            <table class="table table-striger">
+            <table class="table table-striger" id="tariffs">
                 <thead>
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Precio</th>
-                        <th colspan="2"></th>
+                        <th ></th>
+                        <th >
+                            
+            
+                        </th>
                     </tr>
 
                 </thead>
@@ -42,12 +56,16 @@
                             <td>{{ $tariff->price }}</td>
                             <td width="10px">
 
-                             {{--   @can('admin.tariffs.edit')   --}}
+                               @can('admin.tariffs.edit')  
 
                                     <a class="btn btn-primary btn-sm" href="{{ route('admin.tariffs.edit', $tariff) }}">
-                                        Editar</a>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                                          </svg></a>   
+                                    </a>
 
-                                {{--     @endcan   --}}
+                                    @endcan   
 
                             </td>
                             <td width="10px">
@@ -55,11 +73,15 @@
                                     @csrf
                                     @method('delete')
 
-                                {{--    @can('admin.tariffs.destroy') --}}
+                                    @can('admin.tariffs.destroy') 
 
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                                              </svg>
+                                            </button>
 
-                                    {{--     @endcan   --}}
+                                       @endcan  
                                 </form>
 
                             </td>
@@ -70,15 +92,19 @@
             </table>
         </div>
 
-       {{-- @can('admin.users.edit') --}}
+        @can('admin.users.edit') 
 
 
        <div class="card-footer">
+        <div>
+            <h4 class="text-center ">Asignar tarifa a Usuario</h4>
+        </div>
         <form action="{{ route('admin.users.updateTariff') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="user_id">Usuario</label>
-                <select name="user_id" id="user_id" class="form-control" placeholder="Seleccione un usuario">
+                <select name="user_id" id="user_id" class="form-control" >
+                    <option value="" selected>--Haga click para seleccionar un usuario--</option>
                     @foreach ($users as $userId => $userName)
                         <option value="{{ $userId }}">{{ $userName }}</option>
                     @endforeach
@@ -90,9 +116,9 @@
             </div>
     
             <div class="form-group">
-                <label>Tarifas</label><br>
+                <label>Tarifas (Marque una)</label><br>
                 @foreach ($tariffs as $tariff)
-                    <div class="form-check">
+                    <div class="form-check form-check-inline">
                         <input type="radio" name="tariff_id" id="tariff_{{ $tariff->id }}" value="{{ $tariff->id }}" class="form-check-input">
                         <label for="tariff_{{ $tariff->id }}" class="form-check-label">{{ $tariff->name }}</label>
                     </div>
@@ -103,21 +129,41 @@
                 @enderror
             </div>
     
-            <button type="submit" class="btn btn-primary">Actualizar Tarifa</button>
+            <button type="submit" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"/>
+                    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5"/>
+                  </svg>
+                Asignar Tarifa
+            </button>
         </form>
     </div>
     
 
 
-        {{--   @endcan   --}}
+          @endcan  
 
     </div>
     @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
 @section('js')
-    <script> console.log('Hi!'); </script>
+
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+    <script>
+        new DataTable('#tariffs', {
+            responsive: true,
+            autoWidth: false,
+            ordering: false,
+            pageLength: -1,
+            lengthChange: false,
+            paging: false,
+            info: false,
+            }
+
+        }
+        });
+    </script>
 @stop

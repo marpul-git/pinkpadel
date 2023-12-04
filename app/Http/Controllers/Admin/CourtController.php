@@ -8,14 +8,14 @@ use App\Http\Controllers\Controller;
 
 class CourtController extends Controller
 {
-    /*
+    
     public function __construct() {
         $this->middleware('can:admin.courts.index')->only('index');
         $this->middleware('can:admin.courts.create')->only('create','store');
         $this->middleware('can:admin.courts.edit')->only('edit','update');
         $this->middleware('can:admin.courts.destroy')->only('destroy');
     }
-    */
+    
 
 
     /**
