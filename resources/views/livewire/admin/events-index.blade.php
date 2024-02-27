@@ -1,5 +1,5 @@
 <div>
-    <div class='card'>
+    <div class='card bg-slate-500'>
 
         <div class="card-header">
 
@@ -8,7 +8,7 @@
                 <div class="container row align-items-end justify-between">
                     
                     <div class=" col-md-4 text-end">
-                        <label for="selectedDate">Elige una fecha y pulsa 1 de las 2 opciones:</label>
+                        <label for="selectedDate">Filtrar por fecha:</label>
                     </div>
                     <div class="col-md-2">
 
@@ -18,7 +18,7 @@
 
                     <div class="col-md-2 text-end">
                         <button type="submit" formaction="{{ route('admin.events.by-day') }}"
-                            class="btn btn-primary ml-2 mt-2">
+                            class="btn btn-info ml-2 mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-justify" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -28,7 +28,7 @@
                         </button>
                     </div>
                     <div class="col-md-2 text-end">
-                        <button type="submit" class="btn btn-primary  ">
+                        <button type="submit" class="btn btn-info ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-calendar3" viewBox="0 0 16 16">
                                 <path
@@ -42,7 +42,7 @@
                     <div class=" col-md-2 text-end ">
 
                         @can('admin.events.create')
-                            <a class="btn btn-success  mt-2 " href="{{ route('admin.events.create') }}">
+                            <a class="btn btn-primary  mt-2 " href="{{ route('admin.events.create') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
                                     <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z"/>
                                     <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -102,7 +102,7 @@
 
                             </td>
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{ route('admin.events.edit', $event) }}">
+                                <a class="btn btn-info btn-sm" href="{{ route('admin.events.edit', $event) }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                         <path
@@ -118,7 +118,7 @@
                                     @csrf
                                     @method('delete')
 
-                                    <button type="submit" class="btn btn-danger btn-sm"><svg
+                                    <button type="submit" class="btn btn-warning btn-sm"><svg
                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                                             <path

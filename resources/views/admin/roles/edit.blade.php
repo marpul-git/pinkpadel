@@ -7,67 +7,55 @@
 @stop
 
 @section('content')
-    @if (session('info'))
-        <div class="alert alert-success">
-            <strong>{{ session('info') }}</strong>
-        </div>
-    @endif
+
 
     <div class='card'>
+       
+            @if (session('info'))
+                <div class="card-header alert alert-success">
+                    <strong>{{ session('info') }}</strong>
+                </div>
+            @endif
+        
 
         <div class='card-body'>
-            {{--
-            {!! Form::model($role,['route' => ['admin.roles.update',$role],'method'=>'put']) !!}
+            <form action="{{ route('admin.roles.update', $role) }}" method="POST">
+                @csrf
+                @method('PUT') <!-- Agrega el método PUT para la actualización -->
 
-           @include('admin.roles.partials.form')
-
-                     
-
-            {!! Form::submit('Actualizar Rol', ['class' => 'btn btn-primary']) !!}
-
-
-            {!! Form::close() !!}
-                --}}
-                <form action="{{ route('admin.roles.update', $role) }}" method="POST">
-                    @csrf
-                    @method('PUT') <!-- Agrega el método PUT para la actualización -->
-                
-                    <div class="form-group">
-                        {{--
+                <div class="form-group">
+                    {{--
                         {!! Form::label('name', 'Nombre') !!}
                         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del rol']) !!}
                           --}}
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" value=" {{$role->name}}" class="form-control" placeholder="Ingrese el nombre del rol" >
-                    
-                    
-                        @error('name')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    
-                    </div>
-                    
-                    <h2 class="h3">Lista de permisos</h2>
-                    
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" value=" {{ $role->name }}"
+                        class="form-control col-4" placeholder="Ingrese el nombre del rol">
+
+
+                    @error('name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                </div>
+
+                <h2 class="h3">Lista de permisos</h2>
+                <div class=" row">
                     @foreach ($permissions as $permission)
-                        <div>
+                        <div class="col-3 ">
                             <label>
-                                {{--
-                                {!! Form::checkbox('permissions[]', $permission->id, null, ['class' => 'mr-1']) !!}
-                                {{ $permission->description }}
-                                   --}}
                                 <input type="checkbox" id="permissions_{{ $permission->id }}" name="permissions[]"
                                     value="{{ $permission->id }}" class="mr-1"
                                     {{ isset($selectedPermissions) && in_array($permission->id, $selectedPermissions) ? 'checked' : '' }}>
                                 <label for="permissions_{{ $permission->id }}">{{ $permission->description }}</label>
-                    
+
                             </label>
                         </div>
                     @endforeach
-                
-                    <button type="submit" class="btn btn-primary">Actualizar Rol</button>
-                </form>
-                 
+                </div>
+                <button type="submit" class="btn btn-primary">Actualizar Rol</button>
+            </form>
+
         </div>
         <div class="card-footer mt-2">
             <a class="btn btn-success " href="{{ route('admin.roles.index') }}">Listado de roles</a>

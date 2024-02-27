@@ -50,7 +50,7 @@ class RoleController extends Controller
 
         $role->permissions()->sync($request->permissions);//asignamos distintos permisos al rol
 
-        return redirect()->route('admin.roles.edit',$role)->with('info','El rol se creó con exito');
+        return redirect()->route('admin.roles.index',$role)->with('info','El rol se creó con exito');
     }
 
     /**
@@ -89,7 +89,7 @@ class RoleController extends Controller
 
         $role->permissions()->sync($request->permissions);//asignamos distintos permisos al rol
 
-        return redirect()->route('admin.roles.edit',$role)->with('info','El rol se actualizó con exito');
+        return redirect()->route('admin.roles.index',$role)->with('info','El rol se actualizó con exito');
 
     }
 

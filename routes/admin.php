@@ -13,6 +13,7 @@ Route::get('', [HomeController::class,'index'])->middleware('can:admin.home')->n
 
 Route::post('tariffs/update', [UserController::class, 'updateTariff'])->name('admin.users.updateTariff');
 
+Route::post('level/update', [UserController::class, 'updateLevel'])->name('admin.users.updateLevel');
 Route::resource('users', UserController::class)->only(['index','edit','update'])->names('admin.users');
 
 Route::resource('roles',RoleController::class)->names('admin.roles');

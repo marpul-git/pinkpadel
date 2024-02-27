@@ -43,19 +43,15 @@ class EventController extends Controller
         $courts = Court::pluck('name', 'id');
         $users = User::pluck('name', 'id');
         $sections = Section::get();
-        // Obtener todas las secciones disponibles
-        //$allSections = Section::pluck('start_time', 'id');
-
+       
         $allSections = Section::select('id', 'start_time', 'end_time')->get()->keyBy('id');
-        //$events = Event::get();
-        // Obtener los valores de pista, sección y fecha de la solicitud
-        $selectedCourtId = $request->input('court_id');
+       
         $selectedSectionId = $request->input('section_id');
         $selectedDate = $request->input('selectedDate');
 
         $selectedSections = [];
 
-        return view('admin.events.create', compact('courts', 'users', 'sections', 'allSections', 'selectedSections', 'selectedCourtId', 'selectedSectionId', 'selectedDate'));
+        return view('admin.events.create', compact('courts', 'users', 'sections', 'allSections', 'selectedSections', 'selectedSectionId', 'selectedDate'));
     }
 
     /**

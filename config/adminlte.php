@@ -132,8 +132,8 @@ return [
     'usermenu_enabled' => true,
     'usermenu_header' => true,
     'usermenu_header_class' => 'bg-dark',
-    'usermenu_image' => true,
-    'usermenu_desc' => true,
+    'usermenu_image' => false,
+    'usermenu_desc' => false,
     'usermenu_profile_url' => false,
 
     /*
@@ -360,7 +360,7 @@ return [
              'route'        => 'admin.events.index',
              'icon'         => 'fas fa-fu fa-clipboard',
              'can'  => 'admin.events.index',
-             'active' => ['admin/events/by*']
+             'active' => ['admin/events/*']
         ],
         [
             'text'       => 'Crear nuevo evento',

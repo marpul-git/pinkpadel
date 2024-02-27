@@ -3,24 +3,24 @@
 @section('title', 'Crear Eventos')
 
 @section('content_header')
-    <h1>Crear nuevo evento</h1>
+    <h4 class="ml-3"> Crear Evento</h4>
 @stop
 @section('content')
-    <div class='card'>
-        <div class='card-body'>
-        @if (session('error'))
-            <div class="card-header alert alert-danger">
-                <strong>{{ session('error') }}</strong>
-            </div>
-        @endif
-    </div>
+    <div class='card text-primary bg-light'>
+        <div>
+            @if (session('error'))
+                <div class="card-header alert alert-danger">
+                    <strong>{{ session('error') }}</strong>
+                </div>
+            @endif
+        </div>
         <div class='card-body'>
             <form action="{{ route('admin.events.store') }}" method="POST" autocomplete="off">
                 @csrf
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="date">Fecha</label>
-                    <input type="date" name="date" id="date" class="form-control col-2"
+                    <input type="date" name="date" id="date" class="form-control  col-md-4 col-lg-2  text-right"
                         value="{{ old('date', $selectedDate ?? now()->format('Y-m-d')) }}">
                     @error('date')
                         <span class="text-danger">{{ $message }}</span>
@@ -28,22 +28,22 @@
                 </div>
 
                 @include('admin.events.partials.form')
+      
 
-                <div class="form-group ml-3">
-                    <label for="section_id">Secciones</label><br>
-                    <div class="row">
-
-                {{-- dd($allSections)--}}                        
+                <div class="container ">
+                    <label for="section_id">Secciones</label>
+                    <div class="btn-group flex flex-wrap form-check" role="group"
+                        aria-label="Basic checkbox toggle button group">
                         @foreach ($allSections as $sectionId => $section)
-                            <div class="col-md-4">
-                                <label class="form-check-label">
-                                    <input type="checkbox" name="section_id[]" value="{{ $sectionId }}"
-                                        class="form-check-input"
-                                        {{ is_array(old('section_id')) && in_array($sectionId, old('section_id')) ? 'checked' : '' }}>
-                                    {{ \Carbon\Carbon::createFromFormat('H:i:s', $section->start_time)->format('H:i') }}
-                                    - {{ \Carbon\Carbon::createFromFormat('H:i:s', $section->end_time)->format('H:i') }}
-                                </label>
-                            </div>
+                            <label class="btn btn-outline-primary mr-1 rounded-lg form-label" for="{{ $section->id }}">
+                                <input type="checkbox" name="section_id[]" class="btn-check mr-1 " id="{{ $section->id }}"
+                                    value="{{ $section->id }}" autocomplete="off"
+                                    {{ is_array(old('section_id')) && in_array($section->id, old('section_id')) ? 'checked' : '' }}>
+
+
+                                {{ \Carbon\Carbon::createFromFormat('H:i:s', $section->start_time)->format('H:i') }}
+                                - {{ \Carbon\Carbon::createFromFormat('H:i:s', $section->end_time)->format('H:i') }}
+                            </label>
                         @endforeach
                     </div>
                     @error('section_id')
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="col">
+                    <div class="col-sm-6 col-lg-3">
                         <label for="user1_id">Jugador 1</label>
                         <select name="user1_id" id="user1_id" class="form-control" placeholder="Seleccione un jugador">
                             <option value="">-- Selecciona un usuario --</option>
@@ -67,10 +67,10 @@
                         @enderror
                     </div>
 
-                    <div class="col">
+                    <div class="col-sm-6 col-lg-3">
                         <label for="user2_id">Jugador 2</label>
                         <select name="user2_id" id="user2_id" class="form-control" placeholder="Seleccione un jugador">
-                            <option value="">-- Selecciona un usuario --</option>
+                            <option value="">-- Selecciona un Usuario --</option>
                             @foreach ($users as $userId => $userName)
                                 <option value="{{ $userId }}" {{ old('user2_id') == $userId ? 'selected' : '' }}>
                                     {{ $userName }}
@@ -79,7 +79,7 @@
                         </select>
                     </div>
 
-                    <div class="col">
+                    <div class="col-sm-6 col-lg-3">
                         <label for="user3_id">Jugador 3</label>
                         <select name="user3_id" id="user3_id" class="form-control" placeholder="Seleccione un jugador">
                             <option value="">-- Selecciona un usuario --</option>
@@ -91,7 +91,7 @@
                         </select>
                     </div>
 
-                    <div class="col">
+                    <div class="col-sm-6 col-lg-3">
                         <label for="user4_id">Jugador 4</label>
                         <select name="user4_id" id="user4_id" class="form-control" placeholder="Seleccione un jugador">
                             <option value="">-- Selecciona un usuario --</option>
@@ -104,8 +104,18 @@
                     </div>
                 </div>
 
+                <div>
 
-                <button type="submit" class="btn btn-primary">Crear evento</button>
+                    <button type="submit" class="btn btn-primary btn-block ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-plus-square" viewBox="0 0 16 16">
+                            <path
+                                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                            <path
+                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                        </svg>
+                        Nuevo Evento</button>
+                </div>
             </form>
         </div>
 
@@ -115,71 +125,36 @@
 @stop
 
 @section('js')
+
     <script>
-        // Obtener todos los checkboxes de secciones
-        const sectionCheckboxes = document.querySelectorAll('input[name="section_id[]"]');
+        $(document).ready(function() {
+            // Obtener todos los checkboxes de secciones
+            const sectionCheckboxes = $('input[name="section_id[]"]');
 
-        sectionCheckboxes.forEach(checkbox => {
-            // Agregar un listener para el evento de cambio
-            checkbox.addEventListener('change', function() {
-                // Obtener el índice del checkbox actual
-                const currentIndex = [...sectionCheckboxes].indexOf(checkbox);
-
+            sectionCheckboxes.change(function() {
                 // Obtener el estado del checkbox actual
-                const isChecked = checkbox.checked;
+                const isChecked = $(this).prop('checked');
 
-                // Si se está marcando un checkbox
+                // Cambiar el color de fondo del checkbox actual
+                const label = $(this).closest('label');
                 if (isChecked) {
-                    // Buscar checkboxes anteriores marcados y marcar los intermedios
-                    for (let i = currentIndex - 1; i >= 0; i--) {
-                        if (sectionCheckboxes[i].checked) {
-                            for (let j = i + 1; j < currentIndex; j++) {
-                                sectionCheckboxes[j].checked = true;
-                            }
-                            break;
-                        }
-                    }
-
-                    // Buscar checkboxes siguientes marcados y marcar los intermedios
-                    for (let i = currentIndex + 1; i < sectionCheckboxes.length; i++) {
-                        if (sectionCheckboxes[i].checked) {
-                            for (let j = currentIndex + 1; j < i; j++) {
-                                sectionCheckboxes[j].checked = true;
-                            }
-                            break;
-                        }
-                    }
+                    label.css('background-color', 'blue');
+                    label.css('color', 'white');
                 } else {
-                    // Si se está desmarcando un checkbox, desmarcar todos los intermedios
-                    for (let i = currentIndex - 1; i >= 0; i--) {
-                        if (sectionCheckboxes[i].checked) {
-                            for (let j = i + 1; j < currentIndex; j++) {
-                                sectionCheckboxes[j].checked = false;
-                            }
-                            break;
-                        }
-                    }
-
-                    for (let i = currentIndex + 1; i < sectionCheckboxes.length; i++) {
-                        if (sectionCheckboxes[i].checked) {
-                            for (let j = currentIndex + 1; j < i; j++) {
-                                sectionCheckboxes[j].checked = false;
-                            }
-                            break;
-                        }
-                    }
+                    label.css('background-color', ''); // Restaurar el color por defecto
+                    label.css('color', 'blue');
                 }
             });
-        });
 
-        // Capturamos el campo "Usuario" y el campo "Jugador 1" utilizando su identificador único
-        const usuarioInput = document.querySelector('#user_id');
-        const jugador1Input = document.querySelector('#user1_id');
+            // Capturar el campo "Usuario" y el campo "Jugador 1" utilizando sus identificadores únicos
+            const usuarioInput = $('#user_id');
+            const jugador1Input = $('#user1_id');
 
-        // Agregamos un evento "change" al campo "Usuario" para que se ejecute cuando cambie su valor
-        usuarioInput.addEventListener('change', function() {
-            // Asignamos el valor del campo "Usuario" al campo "Jugador 1"
-            jugador1Input.value = usuarioInput.value;
+            // Agregar un evento "change" al campo "Usuario"
+            usuarioInput.change(function() {
+                // Asignar el valor del campo "Usuario" al campo "Jugador 1"
+                jugador1Input.val(usuarioInput.val());
+            });
         });
     </script>
 @stop
