@@ -1,8 +1,11 @@
-<x-guest-layout>
+@extends('frontend.layouts.master')
+
+@section('content')
+<x-guest-layout >
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}" novalidate>
+    <form method="POST" action="{{ route('login') }}"  novalidate>
         @csrf
 
         <!-- Email Address -->
@@ -27,25 +30,27 @@
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                <input id="remember_me" type="checkbox" class="rounded shadow-sm focus:ring-violet-500 text-gray-500" name="remember"  style="border: 2px solid #96BD42;" checked>
                 <span class="ms-2 text-sm text-gray-600">{{ __('Recuérdame') }}</span>
             </label>
         </div>
 
-        <div class="flex  justify-between my-5">
+        <div class="flex  justify-between my-5 mb-4">
             
-                <x-link :href="route('register')">
+                <x-link :href="route('register')" class="mt-5">
                 Crear cuenta
                 </x-link>
-                <x-link :href="route('password.request')">
+                <x-link :href="route('password.request')" class="mt-5" >
                 Olvidaste tu password?
                 </x-link>
            
 
             
         </div>
-        <x-primary-button class="w-full justify-center">
+        <x-primary-button class="w-full justify-center text-sm">
             {{ __('Iniciar Sesión') }}
         </x-primary-button>
     </form>
 </x-guest-layout>
+
+@endsection

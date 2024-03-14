@@ -12,7 +12,7 @@ class CheckDateController extends Controller
     public function index(Request $request)
     {
         $request->validate([
-            'date_input' => 'required'
+            'date_input' => 'required '
         ]);
 
         $selectedDate = $request->input('date_input') ?: now();
@@ -46,7 +46,7 @@ class CheckDateController extends Controller
             }
         }
         //dd($eventData);
-        return view('check_date', compact('eventData', 'courts', 'sections', 'selectedDate'));
+        return view('frontend/pages/check_date', compact('eventData', 'courts', 'sections', 'selectedDate'));
 
        
         
