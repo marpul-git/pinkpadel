@@ -1,3 +1,7 @@
+@extends('frontend.layouts.master')
+
+@section('content')
+
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}" novalidate>
         @csrf
@@ -29,7 +33,7 @@
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
+        <div class="mt-4 mb-4">
             <x-input-label for="password_confirmation" :value="__('Confirmar Password')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password"
@@ -38,9 +42,9 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex  justify-between my-5">
+        <div class="flex  justify-between my-5 " >
 
-            <x-link :href="route('login')">
+            <x-link :href="route('login')" >
                 Iniciar Sesión
             </x-link>
             <x-link :href="route('password.request')">
@@ -50,8 +54,10 @@
 
 
         </div>
-        <x-primary-button class="w-full justify-center">
+        <x-primary-button class="w-full justify-center mt-4">
             {{ __('Crear Cuenta') }}
         </x-primary-button>
     </form>
 </x-guest-layout>
+
+@endsection

@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckDateController;
+use App\Http\Controllers\Frontend\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,16 +17,18 @@ use App\Http\Controllers\CheckDateController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('frontend/pages/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::post('/check_date', [CheckDateController::class, 'index'])->name('check_date');
+Route::get('/academy', function () {
+    return view('frontend/pages/academy');
+})->name('academy');
 
+Route::post('/check_date', [CheckDateController::class, 'index'])->name('check_date');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

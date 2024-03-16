@@ -55,11 +55,11 @@
                             <label for="type">Tipo</label>
                             <select name="type" id="type" class="form-control col-8"
                                 placeholder="Seleccione el tipo de evento">
-                                <option value="PARTIDO">PARTIDO</option>
-                                <option value="SNP">SNP</option>
-                                <option value="FAP">FAP</option>
-                                <option value="ENTRENAMIENTO">ENTRENAMIENTO</option>
-                                <option value="OTRO">OTRO</option>
+                                <option value="PARTIDO" {{ $event->type == 'PARTIDO' ? 'selected' : '' }}>PARTIDO</option>
+                                <option value="SNP" {{ $event->type == 'SNP' ? 'selected' : '' }}>SNP</option>
+                                <option value="FAP" {{ $event->type == 'FAP' ? 'selected' : '' }}>FAP</option>
+                                <option value="MONITOR" {{ $event->type == 'MONITOR' ? 'selected' : '' }}>MONITOR</option>
+                                <option value="OTRO" {{ $event->type == 'OTRO' ? 'selected' : '' }}>OTRO</option>
                             </select>
 
                             @error('type')
@@ -71,9 +71,9 @@
                             <label for="state">Estado</label>
                             <select name="state" id="state" class="form-control col-8"
                                 placeholder="Seleccione el estado del evento">
-                                <option value="RESERVADO">RESERVADO</option>
-                                <option value="ALQUILADO">ALQUILADO</option>
-                                <option value="FIN">FIN</option>
+                                <option value="RESERVADO" {{ $event->state == 'RESERVADO' ? 'selected' : '' }}>RESERVADO</option>
+                                <option value="ALQUILADO" {{ $event->state == 'ALQUILADO' ? 'selected' : '' }}>ALQUILADO</option>
+                                <option value="FIN" {{ $event->state == 'FIN' ? 'selected' : '' }}>FIN</option>
                             </select>
 
                             @error('state')

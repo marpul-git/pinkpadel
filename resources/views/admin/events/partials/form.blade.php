@@ -7,7 +7,7 @@
                 <option value="PARTIDO" {{ old('type') == 'PARTIDO' ? 'selected' : '' }}>PARTIDO</option>
                 <option value="SNP" {{ old('type') == 'SNP' ? 'selected' : '' }}>SNP</option>
                 <option value="FAP" {{ old('type') == 'FAP' ? 'selected' : '' }}>FAP</option>
-                <option value="ENTRENAMIENTO" {{ old('type') == 'ENTRENAMIENTO' ? 'selected' : '' }}>ENTRENAMIENTO
+                <option value="MONITOR" {{ old('type') == 'MONITOR' ? 'selected' : '' }}>MONITOR
                 </option>
                 <option value="OTRO" {{ old('type') == 'OTRO' ? 'selected' : '' }}>OTRO</option>
             </select>
@@ -24,7 +24,7 @@
                 <option value="">-- Indica el Estado --</option>
                 <option value="RESERVADO" {{ old('state') == 'RESERVADO' ? 'selected' : '' }}>RESERVADO</option>
                 <option value="ALQUILADO" {{ old('state') == 'ALQUILADO' ? 'selected' : '' }}>ALQUILADO</option>
-                <option value="FIN" {{ old('state') == 'FIN' ? 'selected' : '' }}>FIN</option>
+                <option value="FIN" {{ old('state') == 'FIN' ? 'selected' : '' }}>NO DISPONIBLE</option>
             </select>
 
             @error('state')

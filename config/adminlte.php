@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Pink</b>PADEL',
-    'logo_img' => 'vendor/adminlte/dist/img/logo.png',
+    'logo' => '',
+    'logo_img' => 'frontend/images/logo_pink.png',
     'logo_img_class' => 'brand-image  elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -153,7 +153,7 @@ return [
     'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
-    'layout_dark_mode' => null,
+    'layout_dark_mode' => true, /*Modificado, antes null*/
 
     /*
     |--------------------------------------------------------------------------
@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/dashboard',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',

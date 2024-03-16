@@ -13,6 +13,8 @@
 
 @section('content')
     <div class="card">
+        {{--dd($eventData[1][4]->state)--}}
+       
         <div class="card-header">
         
             <form action="{{ route('admin.events.by-day-table') }}" method="get" autocomplete="off">
@@ -81,11 +83,19 @@
                                         <a class="btn btn-success btn-sm btn-create-event"
                                             data-court-id="{{ $court->id }}" data-section-id="{{ $section->id }}"
                                             href="#">Libre</a>
+                                    
+                                    
                                     @else
-                                        <a class="btn btn-danger btn-sm"
-                                            href="{{ route('admin.events.edit', $eventData[$section->id][$court->id]) }}">
-                                            {{ $eventData[$section->id][$court->id]->type }}<br>{{ $eventData[$section->id][$court->id]->user->name }}
-                                        </a>
+                                                @if ($eventData[$section->id][$court->id]-> state === 'FIN')
+                                            <a class="btn btn-secondary btn-sm btn-create-event"
+                                            data-court-id="{{ $court->id }}" data-section-id="{{ $section->id }}"
+                                            href="#">Cerrado</a> 
+                                                @else
+                                                    <a class="btn btn-danger btn-sm"
+                                                    href="{{ route('admin.events.edit', $eventData[$section->id][$court->id]) }}">
+                                                    {{ $eventData[$section->id][$court->id]->type }}<br>{{-- $eventData[$section->id][$court->id]->user->name --}}
+                                                </a>
+                                                    @endif
                                     @endif
 
                                 </td>
