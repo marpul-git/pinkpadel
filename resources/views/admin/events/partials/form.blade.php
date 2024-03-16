@@ -7,7 +7,7 @@
                 <option value="PARTIDO" {{ old('type') == 'PARTIDO' ? 'selected' : '' }}>PARTIDO</option>
                 <option value="SNP" {{ old('type') == 'SNP' ? 'selected' : '' }}>SNP</option>
                 <option value="FAP" {{ old('type') == 'FAP' ? 'selected' : '' }}>FAP</option>
-                <option value="ENTRENAMIENTO" {{ old('type') == 'ENTRENAMIENTO' ? 'selected' : '' }}>ENTRENAMIENTO
+                <option value="MONITOR" {{ old('type') == 'MONITOR' ? 'selected' : '' }}>MONITOR
                 </option>
                 <option value="OTRO" {{ old('type') == 'OTRO' ? 'selected' : '' }}>OTRO</option>
             </select>

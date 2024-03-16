@@ -51,6 +51,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/js/swiper/swiper.min.css') }}" type="text/css" media="all" />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
 </head>
 
 <body
@@ -123,7 +124,7 @@
 
     <script type="text/javascript" src="{{ asset('frontend/js/swiper/swiper.min.js') }}"></script>
     
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyD4K_f-443DFVdA2nVkCc4rCTiptSmNuDQ"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key={{ env('APP_KEY_GOOGLE') }}"></script>
     
     <script type="text/javascript" src="{{ asset('frontend/js/core.googlemap.min.js') }}"></script>
     <!--
