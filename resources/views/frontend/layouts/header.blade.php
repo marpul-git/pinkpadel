@@ -204,7 +204,8 @@
                                 </li>
                             -->
                             <li class="menu-item">
-                                <a href={{route('academy')}}>Escuela</a>
+                                <a href={{route('academy')}}>E
+                                    scuela</a>
                             </li>
                             
                                 <li class="menu-item">

@@ -368,12 +368,7 @@ return [
              'icon'         => 'fas fa-fu fa-file',
              'can'  => 'admin.events.create',
         ],
-        ['header' => 'OTROS'],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+       
     ],
 
     /*

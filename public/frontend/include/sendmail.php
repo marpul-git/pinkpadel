@@ -1,39 +1,34 @@
-<?php 
-global $_REQUEST;
-dd($_REQUEST);
-$response = array('error'=>'');
-$contact_email = 'marpul3@hotmail.com';
+<?php
+//var_dump($_POST);
+$response = array('error' => '');
 
-// type
-$type = $_REQUEST['type'];	
-// parse
-parse_str($_POST['data'], $post_data);	
-		
+if (isset($_POST['username'], $_POST['email'], $_POST['subject'], $_POST['message'])) {
+    $user_name = trim($_POST['username']);
+    $user_email = trim($_POST['email']);
+    $user_subject = trim($_POST['subject']);
+    $user_msg = trim($_POST['message']);
+    
+    $contact_email = 'marpul3@hotmail.com';
+    
+    if (!empty($contact_email)) {
+        $subj = 'Message from TennisClub';
+        $msg = "Name: $user_name \r\nE-mail: $user_email \r\nSubject: $user_subject \r\nMessage: $user_msg";
+        
+        $head = "Content-Type: text/plain; charset=\"utf-8\"\n"
+                . "X-Mailer: PHP/" . phpversion() . "\n"
+                . "Reply-To: $user_email\n"
+                . "From: $user_email\n";
+        
+        if (!@mail($contact_email, $subj, $msg, $head)) {
+            $response['error'] = 'Error sending message!';
+        }
+    } else {
+        $response['error'] = 'Error sending message!';
+    }
+} else {
+    $response['error'] = 'Missing required fields!';
+}
 
-		$user_name = stripslashes(strip_tags(trim($post_data['username'])));
-		$user_email = stripslashes(strip_tags(trim($post_data['email'])));
-		$user_subject = stripslashes(strip_tags(trim($post_data['subject'])));
-		$user_msg =stripslashes(strip_tags(trim( $post_data['message'])));
-			
-		if (trim($contact_email)!='') {
-			$subj = 'Message from TennisClub';
-			$msg = $subj." \r\nName: $user_name \r\nE-mail: $user_email \r\nSubject: $user_subject \r\nMessage: $user_msg";
-		
-			$head = "Content-Type: text/plain; charset=\"utf-8\"\n"
-				. "X-Mailer: PHP/" . phpversion() . "\n"
-				. "Reply-To: $user_email\n"
-				. "To: $contact_email\n"
-				. "From: $user_email\n";
-		
-			if (!@mail($contact_email, $subj, $msg, $head)) {
-				$response['error'] = 'Error send message!';
-			}
-		} else 
-				$response['error'] = 'Error send message!';	
-		
-		
+echo json_encode($response);
+exit;
 
-	//echo json_encode($post_data['username'].''.$post_data['email'].''$post_data['subject'].''.$post_data['message']);	
-	echo json_encode($response);
-	die();
-?>

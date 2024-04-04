@@ -74,6 +74,7 @@
 
             <!-- Footer -->
             @include('frontend.layouts.footer')
+            
             <!-- /Footer -->
 
 

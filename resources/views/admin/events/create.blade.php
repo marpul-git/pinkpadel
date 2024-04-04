@@ -35,7 +35,7 @@
                     <div class="btn-group flex flex-wrap form-check" role="group"
                         aria-label="Basic checkbox toggle button group">
                         @foreach ($allSections as $sectionId => $section)
-                            <label class="btn btn-outline-primary mr-1 rounded-lg form-label" for="{{ $section->id }}">
+                            <label class="btn btn-outline-success mr-1 rounded-lg form-label" for="{{ $section->id }}">
                                 <input type="checkbox" name="section_id[]" class="btn-check mr-1 " id="{{ $section->id }}"
                                     value="{{ $section->id }}" autocomplete="off"
                                     {{ is_array(old('section_id')) && in_array($section->id, old('section_id')) ? 'checked' : '' }}>
@@ -106,7 +106,7 @@
 
                 <div>
 
-                    <button type="submit" class="btn btn-primary btn-block ">
+                    <button type="submit" class="btn btn-success btn-block ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-plus-square" viewBox="0 0 16 16">
                             <path
@@ -138,11 +138,11 @@
                 // Cambiar el color de fondo del checkbox actual
                 const label = $(this).closest('label');
                 if (isChecked) {
-                    label.css('background-color', 'blue');
+                    label.css('background-color', 'red');
                     label.css('color', 'white');
                 } else {
                     label.css('background-color', ''); // Restaurar el color por defecto
-                    label.css('color', 'blue');
+                    label.css('color', '#54bd8d');
                 }
             });
 

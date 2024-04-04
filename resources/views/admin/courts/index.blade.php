@@ -81,7 +81,7 @@
         </div>
         <div class="card-footer d-grid gap-2">
             @can('admin.courts.create')
-            <a class="btn btn-primary" href="{{ route('admin.courts.create') }}">
+            <a class="btn btn-success" href="{{ route('admin.courts.create') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-plus-square mr-1" viewBox="0 0 16 16">
                     <path
