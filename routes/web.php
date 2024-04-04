@@ -30,6 +30,8 @@ Route::get('/academy', function () {
 Route::post('/check_date', [CheckDateController::class, 'index'])->name('check_date');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
+Route::post('/contact', [ContactController::class, 'store'])->name('contact');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

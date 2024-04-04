@@ -33,50 +33,52 @@
                             </div>
                         </div>
                     </div>
-                </aside><!-- /Widget: Socials --><!-- Widget: Recent Entries -->
+                </aside><!-- /Widget: Socials -->
+                <!-- Widget: Recent Entries -->
                 <aside class="column-1_4 widget widget_recent_entries">
-                    <h5 class="widget_title">Latest News</h5>
+                    <h5 class="widget_title">Últimas noticias</h5>
                     <ul>
                         <li>
-                            <a href="post-single.html">Improve Your Strokes Using The Wall</a>
+                            <a href="post-single.html">Mejora tus golpes usando la pared</a>
                         </li>
                         <li>
-                            <a href="post-single.html">The Bad Guy Who Has Done Nothing Wrong</a>
+                            <a href="post-single.html">El chico malo que no ha hecho nada malo</a>
                         </li>
                         <li>
-                            <a href="post-single.html">From Dreads to Fed: Wimbledon A-Z</a>
+                            <a href="post-single.html">De dreads a Fed: Wimbledon de la A a la Z</a>
                         </li>
                     </ul>
-                </aside><!-- /Widget: Recent Entries --><!-- Widget: Text -->
+                </aside><!-- /Widget: Recent Entries -->
+                <!-- Widget: Text -->
                 <aside class="column-1_4 widget widget_text">
-                    <h5 class="widget_title">Contact us</h5>
+                    <h5 class="widget_title">Contáctanos</h5>
                     <div class="textwidget">
-                        <strong>Address</strong>
-                        <p> 8500 Lorem Street, Chicago, IL, 55030</p>
-                        <strong>Call Us</strong>
+                        <strong>Dirección</strong>
+                        <p> 8500 Calle Lorem, Chicago, IL, 55030</p>
+                        <strong>Llámanos</strong>
                         <p>(123) 456-78-90</p>
-                        <strong>Email</strong>
-                        <p>sales@yoursite.com</p>
+                        <strong>Correo electrónico</strong>
+                        <p>ventas@tusitio.com</p>
                     </div>
                 </aside><!-- /Widget: Text -->
                 <!-- Widget: RecentPosts -->
                 {{--
                 <aside class="column-1_4 widget widget_recent_posts">
-                    <h5 class="widget_title">Latest Posts</h5>
+                    <h5 class="widget_title">Últimas publicaciones</h5>
                     <article class="post_item with_thumb first">
                         <div class="post_thumb">
-                            <img alt="Improve Your Strokes Using The Wall"
+                            <img alt="Mejora tus golpes usando la pared"
                                 src="http://placehold.it/75x75">
                         </div>
                         <div class="post_content">
                             <h6 class="post_title">
-                                <a href="post-single.html">Improve Your Strokes Using The Wall</a>
+                                <a href="post-single.html">Mejora tus golpes usando la pared</a>
                             </h6>
                             <div class="post_info">
                                 <span class="post_info_item post_info_posted">
-                                    <a href="#" class="post_info_date">February 6, 2016</a>
+                                    <a href="#" class="post_info_date">6 de febrero de 2016</a>
                                 </span>
-                                <span class="post_info_item post_info_posted_by">by
+                                <span class="post_info_item post_info_posted_by">por
                                     <a href="#" class="post_info_author">John Doe</a>
                                 </span>
                                 <span class="post_info_item post_info_counters">
@@ -90,18 +92,18 @@
                     </article>
                     <article class="post_item with_thumb">
                         <div class="post_thumb">
-                            <img alt="The Bad Guy Who Has Done Nothing Wrong"
+                            <img alt="El chico malo que no ha hecho nada malo"
                                 src="http://placehold.it/75x75">
                         </div>
                         <div class="post_content">
                             <h6 class="post_title">
-                                <a href="post-single.html">The Bad Guy Who Has Done Nothing Wrong</a>
+                                <a href="post-single.html">El chico malo que no ha hecho nada malo</a>
                             </h6>
                             <div class="post_info">
                                 <span class="post_info_item post_info_posted">
-                                    <a href="#" class="post_info_date">December 4, 2015</a>
+                                    <a href="#" class="post_info_date">4 de diciembre de 2015</a>
                                 </span>
-                                <span class="post_info_item post_info_posted_by">by
+                                <span class="post_info_item post_info_posted_by">por
                                     <a href="#" class="post_info_author">John Doe</a>
                                 </span>
                                 <span class="post_info_item post_info_counters">
@@ -119,4 +121,3 @@
             </div>
         </div>
     </div>
-</footer>

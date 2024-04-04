@@ -115,7 +115,7 @@
 
 
                         @foreach ($allSections as $sectionId => $section)
-                            <label class="btn btn-outline-primary mr-1 rounded-lg form-label" for="{{ $section->id }}">
+                            <label class="btn btn-outline-success mr-1 rounded-lg form-label" for="{{ $section->id }}">
                                 @php
                                     $isChecked = in_array($sectionId, $event->sections->pluck('id')->toArray());
                                 @endphp
@@ -179,7 +179,7 @@
                     </div>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary  btn-block ">
+                    <button type="submit" class="btn btn-success  btn-block ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z" />
@@ -212,11 +212,11 @@
                 // Cambiar el color de fondo del checkbox actual
                 const label = $(this).closest('label');
                 if (isChecked) {
-                    label.css('background-color', 'blue');
+                    label.css('background-color', 'red');
                     label.css('color', 'white');
                 } else {
                     label.css('background-color', ''); // Restaurar el color anterior
-                    label.css('color', 'blue');
+                    label.css('color', '#54bd8d');
                 }
 
 
@@ -227,11 +227,11 @@
                 const label = $(this).closest('label');
 
                 if (isChecked) {
-                    label.css('background-color', 'blue');
+                    label.css('background-color', 'red');
                     label.css('color', 'white');
                 } else {
                     label.css('background-color', '');
-                    label.css('color', 'blue'); // Restaurar el color por defecto
+                    label.css('color', '#54bd8d'); // Restaurar el color por defecto
                 }
             });
 
