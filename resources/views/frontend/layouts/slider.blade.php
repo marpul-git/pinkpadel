@@ -40,7 +40,7 @@
                         data-transform_out="opacity:0;s:300;s:300;" data-start="500" data-splitin="none"
                         data-splitout="none" data-responsive_offset="on" data-captionhidden="on">Cuida tu salud practicando un deporte divertido
                     </div>
-                    <!-- LAYER NR. 4  -->
+                    <!-- LAYER NR. 4 
                     <div class="tp-caption rev-btn" id="slide-1-layer-9" data-x="1116" data-y="387"
                         data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;"
                         data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;"
@@ -48,7 +48,7 @@
                         data-transform_in="opacity:0;s:600;e:Power2.easeInOut;"
                         data-transform_out="opacity:0;s:300;s:300;" data-start="1700" data-splitin="none"
                         data-splitout="none" data-responsive_offset="on">Learn more</div>
-
+                         -->
                 </li>
                 <!-- SLIDE 2 -->
                 <li data-index="rs-2" data-transition="fade" data-slotamount="default" data-easein="default"
@@ -81,7 +81,7 @@
                         data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1800;e:Power4.easeInOut;"
                         data-transform_out="opacity:0;s:300;s:300;" data-start="500" data-splitin="none"
                         data-splitout="none" data-responsive_offset="on" data-captionhidden="on">Accede a nuestra escuela y eleva tu nivel.</div>
-                    <!-- LAYER NR. 4 -->
+                    <!-- LAYER NR. 4 
                     <div class="tp-caption rev-btn" style="background-color: #6c397d" id="slide-2-layer-7"
                         data-x="center" data-hoffset="340" data-y="466" data-width="['auto']"
                         data-height="['auto']" data-transform_idle="o:1;"
@@ -91,6 +91,7 @@
                         data-transform_out="opacity:0;s:300;s:300;" data-start="1700" data-splitin="none"
                         data-splitout="none" data-responsive_offset="on">Learn more
                     </div>
+                    -->
                 </li>
                 <!-- SLIDE 3 -->
                 <li data-index="rs-3" data-transition="fade" data-slotamount="default" data-easein="default"
@@ -123,7 +124,7 @@
                         data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1800;e:Power4.easeInOut;"
                         data-transform_out="opacity:0;s:300;s:300;" data-start="500" data-splitin="none"
                         data-splitout="none" data-responsive_offset="on" data-captionhidden="on" >hacer nuevos amigos en el camino siempre es divertido, ¡y el Pádel lo hace posible</div>
-                    <!-- LAYER NR. 4 -->
+                    <!-- LAYER NR. 4 
                     <div class="tp-caption rev-btn" id="slide-3-layer-6" data-x="1116" data-y="387"
                         data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;"
                         data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;"
@@ -131,6 +132,8 @@
                         data-transform_in="opacity:0;s:600;e:Power2.easeInOut;"
                         data-transform_out="opacity:0;s:300;s:300;" data-start="1700" data-splitin="none"
                         data-splitout="none" data-responsive_offset="on">Learn more</div>
+
+                        -->
                 </li>
             </ul>
         </div>

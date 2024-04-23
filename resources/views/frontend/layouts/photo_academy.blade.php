@@ -4,7 +4,7 @@
         <div class="post_item post_item_single page type-page">
             <div class="post_content">
                 <!-- Sección de la Última Foto -->
-                <div class="margin_bottom_50_imp padding_top_84_imp">
+                <div class="margin_bottom_50_imp ">
                     <div class="sc_content content_wrap">
                         <h3 class="sc_title sc_title_regular sc_align_center margin_top_null margin_bottom_tiny text_align_center font_weight_600 font_size_3_929em">
                             Fotos</h3>
@@ -145,8 +145,8 @@
                                 <!-- /Elemento Isotope -->
                             </div>
                         </div>
+                        <!--
                         <div class="sc_section margin_top_small margin_bottom_null aligncenter">
-                            <!--
                             <div class="sc_section_inner">
                                 <a href="#" class="sc_button sc_button_square sc_button_style_filled sc_button_size_large sc_button_style_1 margin_bottom_null text_align_center">
                                     <span class="cube flip-to-top">
@@ -159,8 +159,8 @@
                                     </span>
                                 </a>
                             </div>
-                        -->
                         </div>
+                    -->
                     </div>
                 </div>
                 <!-- /Sección de la Última Foto -->

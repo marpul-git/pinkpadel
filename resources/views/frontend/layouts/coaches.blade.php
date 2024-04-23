@@ -170,7 +170,7 @@ class="sc_section margin_top_null margin_bottom_null aligncenter theme_backgroun
             </div>
             <!-- /.sc_team -->
         </div>
-        <!-- /Team wrap -->
+        <!-- /Team wrap 
         <a href="#"
             class="sc_button sc_button_square sc_button_style_filled sc_button_size_large margin_top_tiny margin_bottom_small">
             <span class="cube flip-to-top">
@@ -182,6 +182,7 @@ class="sc_section margin_top_null margin_bottom_null aligncenter theme_backgroun
                 </span>
             </span>
         </a>
+        -->
     </div>
     <!--/Section inner-->
 </div>

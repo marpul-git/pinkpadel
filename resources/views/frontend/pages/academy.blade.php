@@ -3,8 +3,9 @@
 @section('content')
 
 
-<div>
-    Academia
-</div>
+
+    @include('frontend.layouts.photo_academy') 
+    @include('frontend.layouts.membership') 
+
 
 @endsection

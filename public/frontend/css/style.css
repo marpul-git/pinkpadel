@@ -6470,7 +6470,7 @@ a.tribe-events-read-more:hover,
 
 /* Contact form */
 .contact_form_custom_1{
-	background: #f7f8fc url(http://placehold.it/1920x617) !important;
+	background: #f7f8fc url(http://placehold.it/1920x617);
 	background-position: center !important;
 	background-repeat: no-repeat !important;
 	background-size: cover !important;

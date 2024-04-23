@@ -13,9 +13,9 @@
                                         <span class="sc_icon icon-email-2"></span>
                                         <div class="sc_services_item_content">
                                             <div class="sc_services_item_description">
-                                                <p><a href="#">info@yoursite.com</a>
+                                                <p><a href="#">info@pinkpadel.es</a>
                                                     <br />
-                                                    <a href="#">www.yoursite.com</a>
+                                                    <a href="#">www.pinkpadel.es</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -26,8 +26,8 @@
                                         <div class="sc_services_item_content">
                                             <div class="sc_services_item_description">
                                                 <p>
-                                                    +1(800)123-4567
-                                                    <br /> +1(800)123-4566
+                                                    +34 955 000 000
+                                                    <br /> +34 608 000 000
                                                 </p>
                                             </div>
                                         </div>
@@ -37,8 +37,8 @@
                                         <span class="sc_icon icon-home-2"></span>
                                         <div class="sc_services_item_content">
                                             <div class="sc_services_item_description">
-                                                <p>176 W street name,<br />
-                                                    New York, NY 10014
+                                                <p>Avda del Olivo s/n<br />
+                                                    Mairena del Aljarafe (41927) Sevilla
                                                 </p>
                                             </div>
                                         </div>
