@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactMailable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -21,12 +23,14 @@ class ContactController extends Controller
             'subject' => 'required|max:30',
             'message' => 'required|max:300',
         ]);
-        dd($request);
+        //dd($request);
 
         // Si la validación pasa, puedes continuar con el procesamiento de los datos
 
-        // Por ejemplo, aquí puedes guardar los datos en la base de datos, enviar un correo electrónico, etc.
+        Mail::to('marpul3@hotmail.com')->send(new ContactMailable($request->all()));
 
-        return redirect()->route('contact')->with('success', 'Message sent successfully!');
+        return back()->with('success', '¡El mensaje se ha enviado correctamente!');
+
+       
     }
 }

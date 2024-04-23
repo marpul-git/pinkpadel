@@ -79,6 +79,7 @@
 
 
             <!-- Copyright -->
+            {{--
             <div class="copyright_wrap copyright_style_menu">
                 <div class="copyright_wrap_inner">
                     <div class="content_wrap">
@@ -88,11 +89,12 @@
                     </div>
                 </div>
             </div>
+            --}}
             <!-- /Copyright -->
         </div>
     </div>
     <!-- Side block with weather plugin -->
-    @include('frontend.layouts.weather')
+   {{-- @include('frontend.layouts.weather') --}}
     <!-- /Side block with weather plugin -->
     
     <!-- Boton principio de página -->

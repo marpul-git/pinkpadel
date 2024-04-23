@@ -11,8 +11,7 @@
                                     alt="Imagen logo">
                             </a>
                         </div>
-                        <div class="logo_descr">Lorem ipsum dolor sit amet, consect etur adipisicing elit,
-                            sed do eiusmod tempor incidt dolore magna aliqua.</div>
+                        <div class="logo_descr">"¡Juega con pasión, vive con intensidad pero sobre todo disfruta en PinkPadel!"</div>
                         <div
                             class="sc_socials sc_socials_type_icons sc_socials_shape_square sc_socials_size_small">
                             <div class="sc_socials_item">
@@ -42,10 +41,10 @@
                             <a href="post-single.html">Mejora tus golpes usando la pared</a>
                         </li>
                         <li>
-                            <a href="post-single.html">El chico malo que no ha hecho nada malo</a>
+                            <a href="post-single.html">Marta celebra su nuevo campeonato</a>
                         </li>
                         <li>
-                            <a href="post-single.html">De dreads a Fed: Wimbledon de la A a la Z</a>
+                            <a href="post-single.html">El pádel de la A a la Z</a>
                         </li>
                     </ul>
                 </aside><!-- /Widget: Recent Entries -->
@@ -54,11 +53,11 @@
                     <h5 class="widget_title">Contáctanos</h5>
                     <div class="textwidget">
                         <strong>Dirección</strong>
-                        <p> 8500 Calle Lorem, Chicago, IL, 55030</p>
+                        <p> Poligono P.I.S.A -41927- Mairena del Aljarafe</p>
                         <strong>Llámanos</strong>
-                        <p>(123) 456-78-90</p>
+                        <p>(+34) 955-780-900</p>
                         <strong>Correo electrónico</strong>
-                        <p>ventas@tusitio.com</p>
+                        <p>administración@pinkpadel.es</p>
                     </div>
                 </aside><!-- /Widget: Text -->
                 <!-- Widget: RecentPosts -->

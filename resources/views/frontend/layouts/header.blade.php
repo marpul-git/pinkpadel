@@ -7,7 +7,7 @@
             @guest
                 
             
-            <div class="top_panel_top" style="background-color: #6c397d">
+            <div class="top_panel_top" >
                 <div class="content_wrap clearfix">
                 {{--
                     <div class="top_panel_top_contact_area icon-smartphone">+44 (0) 1234 56789</div>
@@ -126,10 +126,10 @@
                             <ul id="menu_main" class="menu_main_nav">
                                 <li
                                     class="menu-item current-menu-ancestor current-menu-parent menu-item-has-children">
-                                    <a href="#">Inicio</a>
+                                    <a href="{{route('home')}}">Inicio</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item current-menu-item current_page_item">
-                                            <a href="{{route('home')}}">Inicio </a>
+                                            <a href="{{route('home')}}" >Inicio </a>
                                         </li>
                                         @can('admin.home')
                                         <li class="menu-item">
@@ -203,11 +203,16 @@
                                     <a href="shop.html">Pro Shop</a>
                                 </li>
                             -->
+                            <!--
                             <li class="menu-item">
                                 <a href={{route('academy')}}>E
                                     scuela</a>
                             </li>
-                            
+                        
+                            <li class="menu-item">
+                                <a href={{route('installations')}}>Instalaciones</a>
+                            </li>
+                            -->
                                 <li class="menu-item">
                                     <a href={{route('contact')}}>Contactar</a>
                                 </li>
@@ -219,19 +224,25 @@
                                     <a href="{{route('profile.edit')}}" class="icon-user">{{ Auth::user()->name }}</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item">
+                                            {{--
                                             <x-dropdown-link :href="route('profile.edit')">
                                                 {{ __('Tu perfil') }}
                                             </x-dropdown-link>
+                                            --}}
+                                            <a href="{{route('profile.edit')}}" class="icon-user">Tu perfil</a>
                                         </li>
                                         <li class="menu-item">
                                             <form method="POST" action="{{ route('logout') }}">
                                                 @csrf
-                    
+                                                {{--
                                                 <x-dropdown-link :href="route('logout')"
                                                         onclick="event.preventDefault();
                                                                     this.closest('form').submit();">
                                                     {{ __('Cerrar Sesión') }}
                                                 </x-dropdown-link>
+                                                --}}
+                                                <a href="{{route('logout')}}" onclick="event.preventDefault();
+                                                this.closest('form').submit();">Cerrar Sesión</a>
                                             </form>
                                         </li>
                                         

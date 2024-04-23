@@ -15,13 +15,25 @@
 
 <h2 class="h3">Lista de permisos</h2>
 
+@foreach ($permissions->chunk(ceil($permissions->count() / 2)) as $chunk)
+<div class="row">
+    @foreach ($chunk as $permission)
+    <div class="col-md-6">
+        <label>
+            <input type="checkbox" id="permissions_{{ $permission->id }}" name="permissions[]"
+                value="{{ $permission->id }}" class="mr-1"
+                {{ isset($selectedPermissions) && in_array($permission->id, $selectedPermissions) ? 'checked' : '' }}>
+            <label for="permissions_{{ $permission->id }}">{{ $permission->description }}</label>
+        </label>
+    </div>
+    @endforeach
+</div>
+@endforeach
+{{--  En una columna
 @foreach ($permissions as $permission)
     <div>
         <label>
-            {{--
-            {!! Form::checkbox('permissions[]', $permission->id, null, ['class' => 'mr-1']) !!}
-            {{ $permission->description }}
-               --}}
+        
             <input type="checkbox" id="permissions_{{ $permission->id }}" name="permissions[]"
                 value="{{ $permission->id }}" class="mr-1"
                 {{ isset($selectedPermissions) && in_array($permission->id, $selectedPermissions) ? 'checked' : '' }}>
@@ -30,3 +42,4 @@
         </label>
     </div>
 @endforeach
+--}}

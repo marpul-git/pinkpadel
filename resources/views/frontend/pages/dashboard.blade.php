@@ -39,23 +39,26 @@
             <h3 class="mt-2 px-4">-Todas nuestras pistas disponen de luz artificial</h3>
         </div>
         
+        @include('frontend.layouts.membership') 
 
 
 
-
-        <div class="py-5 mb-5">
+        <div id="availability" class="py-5 mb-5">
             <div class="w-1/2 mx-auto sm:px-6 lg:px-8">
 
                 <form method="POST" class="w-1/2" action="{{ route('check_date') }}" novalidate>
                     @csrf
-                    <x-date-input value="{{ now()->format('Y-m-d') }}" class="text-center text-lg text-gray-600 w-1/2 ">
+                    <x-date-input value="{{ now()->format('Y-m-d') }}" class="text-center text-lg text-gray-800 w-1/2">
+                        <strong class="text-gray-600">
                         {{ __('INTRODUCE LA FECHA PARA VER DISPONIBILIDAD') }}
+                    </strong>
+                    </div>
                     </x-date-input>
                     @error('date_input')
                         <span class="text-danger text-red-600">{{ $message }}</span>
                     @enderror
 
-                    <x-primary-button class="w-full mt-4 mb-4 justify-center">
+                    <x-primary-button class="w-full mt-4 mb-4 justify-center text-gray-800 text-4xl" style="background-color: #96BD42">
                         {{ __('Ver disponibilidad') }}
                     </x-primary-button>
                 </form>

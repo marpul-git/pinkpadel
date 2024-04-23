@@ -643,7 +643,7 @@ textarea:focus:-ms-input-placeholder{
 .header_mobile .menu_main_nav > li ul li.current-menu-ancestor > a,
 .header_mobile .login .popup_link:hover{
 	color: #fff;
-	font-weight: 400;
+	font-weight: 600;
 }
 .header_mobile .login .popup_link,
 .header_mobile .sc_socials.sc_socials_type_icons a {
