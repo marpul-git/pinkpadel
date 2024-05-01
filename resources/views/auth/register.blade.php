@@ -54,7 +54,7 @@
 
 
         </div>
-        <x-primary-button class="w-full justify-center mt-4">
+        <x-primary-button class="w-full justify-center mt-4" style="background-color: #96BD42">
             {{ __('Crear Cuenta') }}
         </x-primary-button>
     </form>

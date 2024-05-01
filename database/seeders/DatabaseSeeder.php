@@ -21,11 +21,12 @@ class DatabaseSeeder extends Seeder
         // ]);
         
         $this->call(RoleSeeder::class);
-          
+         // Creamos el 1 usuario administrador que será encargado de gestionar a los usuarios hasta que el mismo habilite a otro/s usuarios con sus respectivos roles  
         User::create([
             'name' => 'Administrador',
             'email' => 'administrador@example.com',
             'password' =>bcrypt('administrador'),
+            'email_verified_at' => now()  
             
         ])-> assignRole('Admin'); 
 

@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;//Le indicamos que es un archivo de rutas
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
@@ -9,11 +9,15 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TariffController;
 use App\Http\Controllers\Admin\SectionController;
 
+// A las rutas le podemos restriguir el acceso a traves de los middleware
+
 Route::get('', [HomeController::class,'index'])->middleware('can:admin.home')->name('admin.home');
 
 Route::post('tariffs/update', [UserController::class, 'updateTariff'])->name('admin.users.updateTariff');
 
 Route::post('level/update', [UserController::class, 'updateLevel'])->name('admin.users.updateLevel');
+
+// El metodo resource() nos crea una ruta con todos los metodos, aunque podemos limitarlos con el metodo only()
 Route::resource('users', UserController::class)->only(['index','edit','update'])->names('admin.users');
 
 Route::resource('roles',RoleController::class)->names('admin.roles');
@@ -26,4 +30,5 @@ Route::resource('tariffs', TariffController::class)->names('admin.tariffs');
 
 Route::get('events/by-day', [EventController::class, 'eventsByDay'])->name('admin.events.by-day');
 Route::get('events/by-day-table', [EventController::class, 'eventsByDayTable'])->name('admin.events.by-day-table');
+
 Route::resource('events', EventController::class)->names('admin.events');
