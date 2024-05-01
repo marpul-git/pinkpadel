@@ -23,7 +23,7 @@
                  </div>
                 <div class="flex justify-center items-center h-screen">
                     <div id="sc_form_1_wrap" class="sc_form_wrap">
-                        <form method="POST" action="{{ route('contact') }}" class="max-w-md w-full " novalidate>
+                        <form method="POST" action="{{ route('contact') }}"  novalidate>
                             @csrf
                             <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
                                 <div>
@@ -56,7 +56,7 @@
                                 @enderror
                             </div>
                             <div class="mt-4">
-                                <button type="submit" class="w-full  bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Enviar Mensaje</button>
+                                <button type="submit" class="w-full  bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-600 focus:outline-none focus:bg-blue-600" >Enviar Mensaje</button>
                             </div>
                         </form>
                     </div>

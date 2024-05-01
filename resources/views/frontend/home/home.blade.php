@@ -14,6 +14,6 @@
     <!-- /Revolution Slider section -->
     <!-- Page Content Wrap -->
 
-  {{--  @include('frontend.layouts.prov_wrap') --}}
+  
     <!-- /Page Content Wrap -->
 @endsection

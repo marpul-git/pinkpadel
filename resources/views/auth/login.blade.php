@@ -1,6 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('content')
+
 <x-guest-layout >
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -47,7 +48,7 @@
 
             
         </div>
-        <x-primary-button class="w-full justify-center text-sm">
+        <x-primary-button class="w-full justify-center text-sm" style="background-color: #96BD42">
             {{ __('Iniciar Sesión') }}
         </x-primary-button>
     </form>

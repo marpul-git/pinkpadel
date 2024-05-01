@@ -37,16 +37,17 @@ Route::post('/check_date', [CheckDateController::class, 'index'])->name('check_d
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');//muestra el formulario de contacto
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact');
-/*
-Route::get('contactanos', function () {
-    Mail::to('marpul3@hotmail.com')->send(new ContactMailable);// Para
-    return "Mensaje enviado";
-})->name('contactanos');
-*/
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+/*
+Route::get('contactanos', function () {
+    Mail::to('marpul3@hotmail.com')->send(new ContactMailable);// Para
+    return "Mensaje enviado";
+})->name('contactanos');
+*/
 require __DIR__.'/auth.php';

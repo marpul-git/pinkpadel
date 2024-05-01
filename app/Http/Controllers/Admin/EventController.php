@@ -39,21 +39,27 @@ class EventController extends Controller
      */
     public function create(Request $request)
     {
-
-        $courts = Court::pluck('name', 'id');
-        $users = User::pluck('name', 'id');
-        $sections = Section::get();
-       
+        // Rescatamos las pistas, los usuarios y las secciones
+        $courts = Court::pluck('name', 'id'); // Obtiene todas las pistas y las prepara para usarlas en un menú desplegable
+        $users = User::pluck('name', 'id'); // Obtiene todos los usuarios y los prepara para usarlos en un menú desplegable
+        $sections = Section::get(); // Obtiene todas las secciones disponibles para mostrarlas en la vista de creación
+    
+        // Obtiene todas las secciones y las organiza en un array asociativo con el ID como clave
         $allSections = Section::select('id', 'start_time', 'end_time')->get()->keyBy('id');
-       
+    
+        // Obtiene el ID de la sección seleccionada del formulario (si existe)
         $selectedSectionId = $request->input('section_id');
+    
+        // Obtiene la fecha seleccionada del formulario (si existe)
         $selectedDate = $request->input('selectedDate');
-
+    
+        // Inicializa un array vacío para las secciones seleccionadas (puede que se use más adelante)
         $selectedSections = [];
-
+    
+        // Devuelve la vista 'admin.events.create' con los datos necesarios para mostrar el formulario de creación
         return view('admin.events.create', compact('courts', 'users', 'sections', 'allSections', 'selectedSections', 'selectedSectionId', 'selectedDate'));
     }
-
+    
     /**
      * Store a newly created resource in storage.
      */
@@ -67,8 +73,7 @@ class EventController extends Controller
 
             'user_id' => 'required',
             'court_id' => 'required',
-            'section_id' => 'required|array|min:1',
-            // Asegurarse de que al menos el usuario  1 esté seleccionada.
+            'section_id' => 'required|array|min:1', // Asegurarse de que al menos el usuario  1 esté seleccionada.
             'user1_id' => 'required|exists:users,id',
             'user2_id' => 'nullable|exists:users,id',
             'user3_id' => 'nullable|exists:users,id',
@@ -87,16 +92,7 @@ class EventController extends Controller
 
         // Obtener las secciones seleccionadas del formulario
         $selectedSections = $request->input('section_id');
-        
-        /*
-         dd($arraySections);
-
-        //  añadir 1 a las secciones, que al ser obtenida mediante un foreach el indice es 0
-        $selectedSections = array_map(function ($element) {
-            return $element + 1;
-        }, $arraySections);
-        */
-        //dd($selectedSections);
+       
         // Comparamos las secciones seleccionadas con las ocupadas
         $conflictingSections = array_intersect($occupiedSections, $selectedSections);
 
