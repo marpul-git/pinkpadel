@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         
         $this->call(RoleSeeder::class);
-         // Creamos el 1 usuario administrador que será encargado de gestionar a los usuarios hasta que el mismo habilite a otro/s usuarios con sus respectivos roles  
+         // Creamos el 1 usuario administrador que será encargado de gestionar a los usuarios hasta que el mismo habilite a otro/s usuarios con sus respectivos roles
+         // Verificamos el email con la fecha actual para evitar confirmar al administrador de la aplicacion  
         User::create([
             'name' => 'Administrador',
             'email' => 'administrador@example.com',
@@ -30,8 +31,9 @@ class DatabaseSeeder extends Seeder
             
         ])-> assignRole('Admin'); 
 
-        //Para llamar al Seeder CourtSeeder
+        //Para llamar a los Seeder CourtSeeder, SectionSeeder y TariffSeeder
         $this->call(CourtSeeder::class);
         $this->call(SectionSeeder::class);
+        $this->call(TariffSeeder::class);
     }
 }

@@ -13,7 +13,7 @@
                     @error('date_input')
                     <span class="text-danger text-red-600">{{ $message }}</span>
                 @enderror
-                    <x-primary-button class="w-full mt-4 justify-center">
+                    <x-primary-button class="w-full mt-4 justify-center"  >
                         {{ __('CONSULTAR') }}
                     </x-primary-button>
                 </form>
